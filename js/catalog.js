@@ -45,42 +45,43 @@ function handleSubmit(event) {
 
 }
 
-// TODO: Add the selected item and quantity to the cart 
+// DONE: Add the selected item and quantity to the cart 
 
 function addSelectedItemToCart() {
-  // TODO: suss out the item picked from the select list
-  // TODO: get the quantity
-  // TODO: using those, add one item to the Cart
-  // Call upDateCounter and updateCartPreview here INSIDE
- 
+  // DONE: suss out the item picked from the select list
+  // DONE: get the quantity
+  // DONE: using those, add one item to the Cart
+ var getItemFromForm = document.getElementById('items')
+ var choosenItem = getItemFromForm.value;
+ var getQtyFromForm = document.getElementById('quantity');
+ var qtyWanted = getQtyFromForm.value;
 
+ cart.addItem(choosenItem,qtyWanted);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {} // we want itemCount ID line 17 index.html (increment by changing textContent or innerHTML )
+function updateCounter() {
+  // we want itemCount ID line 17 index.html (increment by changing textContent or innerHTML )
+} 
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
   // DONE // Get the item and quantity from the form  
   // DONE// Add a new element to the cartContents div with that information
-  var paramOne = event.target.items.value;
-  var paramTwo = event.target.quantity.value;
+  var getItemFromForm = document.getElementById('items')
+  var choosenItem = getItemFromForm.value;
+  var getQtyFromForm = document.getElementById('quantity');
+  var qtyWanted = getQtyFromForm.value;
+
   var cartContents = document.getElementById('cartContents');
   var addItemP = document.createElement('p');
-  addItemP.innerHTML = paramTwo + ": " + paramOne;
-  addItemP.appendChild(cartContents);
-
-
-  
-} // contentsDiv located on index.html -- we need to populate this on homepage-experiment with adding pTags to div 
-
-
+  addItemP.innerHTML = choosenItem + ": " + qtyWanted;
+  cartContents.appendChild(addItemP);
+} 
 
   // Set up the "submit" event listener on the form.
   // This is the trigger for the app. When a user "submits" the form, it will
   // Call that handleSubmit method above and kick off the whole process
-
-
 var catalogForm = document.getElementById('catalog');
 catalogForm.addEventListener('submit', handleSubmit);
 

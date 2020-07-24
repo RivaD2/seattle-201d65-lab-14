@@ -7,21 +7,17 @@ var Cart = function(items) {
 };
 
 
-  // TODO: Fill in this instance method to create a new CartItem and add it to this.items
+  // MAYBE DONE: Fill in this instance method to create a new CartItem and add it to this.items
 Cart.prototype.addItem = function(product, quantity) {
-  // var  = document.getElementById('items'); 
-  // var  = document.createElement()
-   //var newItem = new CartItem(paramOne, paramTwo); ????
-  
+  var addNewItem = new CartItem(product, quantity); 
+  this.items.push(addNewItem);
 };
 
 Cart.prototype.saveToLocalStorage = function() {
-  var itemArrayToString = JSON.stringify(Cart.items);
-  localStorage.setItem('items', itemArrayToString);
-  
-  
-  
-  // TODO: Fill in this instance method to save the contents of the cart to localStorage
+  // MAYBE DONE: Fill in this instance method to save the contents of the cart to localStorage
+  var itemArrayToString = JSON.stringify(this.items);
+  debugger;
+  localStorage.setItem('cart', itemArrayToString); 
 };
 
 Cart.prototype.removeItem = function(item) {
@@ -41,6 +37,7 @@ var Product = function(filePath, name) {
   Product.allProducts.push(this);
 };
 Product.allProducts = [];
+
 
 function generateCatalog() {
   new Product('assets/bag.jpg', 'Bag');
